@@ -5,130 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HelterSkelter</title>
     {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+    <style>
+      body {
+        background-color: #121212;
+        color: white;
+      }
+      .sidebar {
+        background-color: #121212;
+        padding: 20px;
+      }
+      .sidebar a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 10px 20px;
+      }
+      .sidebar a.active {
+        background-color: #ff4081;
+        color: white;
+      }
+      .content {
+        padding: 20px;
+      }
+      .card {
+        background-color: #1e1e1e;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+      }
+      .card-header {
+        background-color: transparent;
+        border-bottom: 0;
+      }
+      .card-body {
+        color: white;
+      }
+      .card-title {
+        color: #00bfff; /* Синий цвет для заголовков */
+      }
+      .card-text {
+        color: #999; /* Серый цвет для текста */
+      }
+      .icon {
+        width: 40px;
+        height: 40px;
+        background-color: #ff4081;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        margin-left: 10px;
+      }
+      .search-bar {
+        background-color: #2c2c2c;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 10px;
+        color: white;
+      }
+      .user-profile {
+        background-color: #ff4081;
+        color: white;
+        border-radius: 50%;
+        padding: 5px 10px;
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Fixed navbar</a>
-          <button
-            class="navbar-toggler collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="navbar-collapse collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <main class="flex-shrink-0">
-      <div class="container">
-        <h1 class="mt-5">Sticky footer with fixed navbar</h1>
-        <p class="lead">
-          Pin a footer to the bottom of the viewport in desktop browsers with
-          this custom HTML and CSS. A fixed navbar has been added with
-          <code class="small">padding-top: 60px;</code> on the
-          <code class="small">main &gt; .container</code>.
-        </p>
-        <p>
-          Back to
-          <a href="/docs/5.3/examples/sticky-footer/"
-            >the default sticky footer</a
-          >
-          minus the navbar.
-        </p>
-      </div>
-      <div class="container">
-        <h1 class="mt-5">Sticky footer with fixed navbar</h1>
-        <p class="lead">
-          Pin a footer to the bottom of the viewport in desktop browsers with
-          this custom HTML and CSS. A fixed navbar has been added with
-          <code class="small">padding-top: 60px;</code> on the
-          <code class="small">main &gt; .container</code>.
-        </p>
-        <p>
-          Back to
-          <a href="/docs/5.3/examples/sticky-footer/"
-            >the default sticky footer</a
-          >
-          minus the navbar.
-        </p>
-      </div>
-      <div class="container">
-        <h1 class="mt-5">Sticky footer with fixed navbar</h1>
-        <p class="lead">
-          Pin a footer to the bottom of the viewport in desktop browsers with
-          this custom HTML and CSS. A fixed navbar has been added with
-          <code class="small">padding-top: 60px;</code> on the
-          <code class="small">main &gt; .container</code>.
-        </p>
-        <p>
-          Back to
-          <a href="/docs/5.3/examples/sticky-footer/"
-            >the default sticky footer</a
-          >
-          minus the navbar.
-        </p>
-      </div>
-      <div class="container">
-        <h1 class="mt-5">Sticky footer with fixed navbar</h1>
-        <p class="lead">
-          Pin a footer to the bottom of the viewport in desktop browsers with
-          this custom HTML and CSS. A fixed navbar has been added with
-          <code class="small">padding-top: 60px;</code> on the
-          <code class="small">main &gt; .container</code>.
-        </p>
-        <p>
-          Back to
-          <a href="/docs/5.3/examples/sticky-footer/"
-            >the default sticky footer</a
-          >
-          minus the navbar.
-        </p>
-      </div>
-      <div class="container">
-        <h1 class="mt-5">Sticky footer with fixed navbar</h1>
-        <p class="lead">
-          Pin a footer to the bottom of the viewport in desktop browsers with
-          this custom HTML and CSS. A fixed navbar has been added with
-          <code class="small">padding-top: 60px;</code> on the
-          <code class="small">main &gt; .container</code>.
-        </p>
-        <p>
-          Back to
-          <a href="/docs/5.3/examples/sticky-footer/"
-            >the default sticky footer</a
-          >
-          minus the navbar.
-        </p>
-      </div>
-    </main>
+    {% include 'site/'|add:type_device|add:'/base.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css"></script>
   </body>
 </html>

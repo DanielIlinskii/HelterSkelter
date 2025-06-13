@@ -1,7 +1,10 @@
 from django.urls import path
-from .views import UserListCreateView, test
+from .views import IndexView, LoginView
 
 urlpatterns = [
-    path("api/users/", UserListCreateView.as_view(), name="user-list-create"),
-    path("test/", test, name="test"),
+    path("", IndexView.as_view(), name="test"),
+    path("login/", LoginView.as_view(), name="user_login"),
+    path('profile/', IndexView.as_view(), name='profile'),
 ]
+
+# path("logout/", LoginView.as_view(), name="user_logout"),

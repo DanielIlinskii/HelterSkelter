@@ -53,10 +53,18 @@ class User(AbstractUser):
     referral_code = models.CharField(
         "Реферальный код", max_length=50, unique=True, null=True, blank=True
     )
-    source_of_signup = models.CharField("Откуда узнал о нас", max_length=50, blank=True)
+
+    where_admin = models.OneToOneField(
+        "studio.Studio",
+        verbose_name="Администратор",
+        on_delete=models.SET_NULL,
+        null=True,
+    )
+
+
 
     # Настройки
-    USERNAME_FIELD = "username"  # Используем phone_number как основной идентификатор
+    USERNAME_FIELD = "username"  # Используем username как основной идентификатор
     # REQUIRED_FIELDS = [
     #     "username"
     # ]  # username теперь обязателен при создании пользователя

@@ -18,8 +18,9 @@ def index(request):
     return render(request, "admin_panel/" + type_device(request) + "/index.html")
 
 
-def main(request):
+def base(request):
     context = {
-        "User": User
+        "User": User,
+        "type_device": type_device(request),
     }
     return render(request, "site/base.html", context)

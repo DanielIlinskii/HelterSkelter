@@ -1,30 +1,26 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from .models import User
-from .schemas import UserCreate, UserResponse
-from .database import get_db
-from sqlalchemy.orm import Session
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.views import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class UserListCreateView(APIView):
+
+class IndexView(LoginRequiredMixin, View):
     def get(self, request):
-        db: Session = get_db().__next__()
-        users = db.query(User).all()
-        return Response([UserResponse.from_orm(user).dict() for user in users])
+        return render(request, "test.html")
+
+
+# аутентификация
+class LoginView(View):
+    def get(self, request):
+        return render(request, "login.html")
 
     def post(self, request):
-        data = UserCreate(**request.data)
-        db: Session = get_db().__next__()
-        new_user = User(**data.dict())
-        db.add(new_user)
-        db.commit()
-        db.refresh(new_user)
-        return Response(
-            UserResponse.from_orm(new_user).dict(), status=status.HTTP_201_CREATED
-        )
-
-
-def test(request):
-    return HttpResponse("test")
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+        return redirect("/")

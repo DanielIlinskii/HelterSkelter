@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "users",
     "django_user_agents",
     "studio",
+    "schedule",
 ]
 
 REST_FRAMEWORK = {
@@ -70,10 +71,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "CRM.urls"
 
+LOGIN_URL = "/login/"
+
+LOGIN_REDIRECT_URL = "/"
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["templates"],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

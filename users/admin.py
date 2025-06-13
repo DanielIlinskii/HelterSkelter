@@ -14,9 +14,10 @@ class CustomUserAdmin(UserAdmin):
         "is_verified",
         "access_level",
         "balance",
+        "where_admin",
     )
     fieldsets = (
-        (None, {"fields": ("username", "email", "password", 'balance')}),
+        (None, {"fields": ("username", "email", "password", "balance")}),
         ("Персональная информация", {"fields": ("name", "last_name", "phone_number")}),
         (
             "Разрешения",
@@ -50,7 +51,6 @@ class CustomUserAdmin(UserAdmin):
                     "special_notes",
                     "social_media_links",
                     "referral_code",
-                    "source_of_signup",
                 )
             },
         ),

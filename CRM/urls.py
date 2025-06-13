@@ -17,13 +17,15 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from .views import index, type_device, main
+from .views import index, type_device, base
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("index/", index, name="index"),
     path("users/", include("users.urls")),
-    path("test/", type_device, name="type_device"),
-    path("api/", include("api.urls")),
-    path('', main, name='main'),
+    path("", base, name="base"),
 ]
+
+
+# path("index/", index, name="index"),
+# path("test/", type_device, name="type_device"),
+# path("api/", include("api.urls")),
