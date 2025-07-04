@@ -1,13 +1,10 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.views import View
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-
-class IndexView(LoginRequiredMixin, View):
+class IndexView(View):
     def get(self, request):
         return render(request, "test.html")
 
@@ -15,7 +12,7 @@ class IndexView(LoginRequiredMixin, View):
 # аутентификация
 class LoginView(View):
     def get(self, request):
-        return render(request, "login.html")
+        return render(request, f"site/{request.type_device}/login.html")
 
     def post(self, request):
         username = request.POST["username"]

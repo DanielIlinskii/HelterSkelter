@@ -1,0 +1,255 @@
+<div class="main-content">
+  <!-- Header -->
+  <div class="header">
+    <div class="header-title">
+      <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div>
+        <h2>Панель управления</h2>
+        <div class="header-subtitle">Добро пожаловать в HelterSkelter CRM</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Поиск клиентов, записей..." />
+      </div>
+      <div class="user-profile">
+        <div class="user-avatar">АМ</div>
+        <div class="user-name">
+          {{ user.name }} {{ user.last_name }} {{ user.balance }}₽
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Stats -->
+  <div class="dashboard-grid">
+    <div class="stat-card" style="transform: translateY(0px) scale(1)">
+      <div class="stat-card-header">
+        <div class="stat-card-title">Всего клиентов</div>
+        <div class="stat-card-icon icon-clients">
+          <i class="fas fa-users"></i>
+        </div>
+      </div>
+      <div class="stat-card-value">358</div>
+      <div class="stat-card-change">
+        <i class="fas fa-arrow-up"></i>
+        <span>+12% с прошлого месяца</span>
+      </div>
+    </div>
+
+    <div class="stat-card" style="transform: translateY(0px) scale(1)">
+      <div class="stat-card-header">
+        <div class="stat-card-title">Записи сегодня</div>
+        <div class="stat-card-icon icon-appointments">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+      </div>
+      <div class="stat-card-value">8</div>
+      <div class="stat-card-change">
+        <i class="fas fa-arrow-up"></i>
+        <span>+2 больше чем вчера</span>
+      </div>
+    </div>
+
+    <div class="stat-card" style="transform: translateY(0px) scale(1)">
+      <div class="stat-card-header">
+        <div class="stat-card-title">Доход за месяц</div>
+        <div class="stat-card-icon icon-revenue">
+          <i class="fas fa-ruble-sign"></i>
+        </div>
+      </div>
+      <div class="stat-card-value">345,800₽</div>
+      <div class="stat-card-change">
+        <i class="fas fa-arrow-up"></i>
+        <span>+8.3% с прошлого месяца</span>
+      </div>
+    </div>
+
+    <div class="stat-card" style="transform: translateY(0px) scale(1)">
+      <div class="stat-card-header">
+        <div class="stat-card-title">Активные мастера</div>
+        <div class="stat-card-icon icon-artists">
+          <i class="fas fa-paint-brush"></i>
+        </div>
+      </div>
+      <div class="stat-card-value">5</div>
+      <div class="stat-card-change negative">
+        <i class="fas fa-arrow-down"></i>
+        <span>1 в отпуске</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Appointments -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">
+        <i class="fas fa-calendar-week"></i>
+        Ближайшие записи
+      </div>
+      <div class="section-action">Показать все</div>
+    </div>
+
+    <div class="appointments-wrapper">
+      <table class="appointment-list">
+        <thead>
+          <tr>
+            <th>Клиент</th>
+            <th>Дата</th>
+            <th>Время</th>
+            <th>Мастер</th>
+            <th>Услуга</th>
+            <th>Телефон</th>
+            <th>Статус</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Клиент">
+              <div class="client-info">
+                <div class="client-avatar">ИИ</div>
+                <div class="client-name">Иван Иванов</div>
+              </div>
+            </td>
+            <td data-label="Дата">15 июня 2023</td>
+            <td data-label="Время">11:00</td>
+            <td data-label="Мастер">Александр К.</td>
+            <td data-label="Услуга">Рукав, начало</td>
+            <td data-label="Услуга">88005553535</td>
+            <td data-label="Статус">
+              <span class="status-badge status-upcoming">Предстоит</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bottom Sections -->
+  <div class="bottom-layout">
+    <!-- New Clients -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-title">
+          <i class="fas fa-user-plus"></i>
+          Новые клиенты
+        </div>
+        <div class="section-action">Показать всех</div>
+      </div>
+
+      <div class="client-grid">
+        <div class="client-card" style="transform: translateY(0px) scale(1)">
+          <div class="client-card-header">
+            <div class="client-card-avatar">МК</div>
+            <div class="client-card-info">
+              <div class="client-card-name">Максим Королев</div>
+              <div class="client-card-email">max@example.com</div>
+            </div>
+          </div>
+          <div class="client-card-details">
+            <div class="client-card-detail">
+              <i class="fas fa-phone"></i>
+              <span>+7 (999) 123-45-67</span>
+            </div>
+            <div class="client-card-detail">
+              <i class="fas fa-calendar-plus"></i>
+              <span>Зарегистрирован: 12 июня</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="client-card">
+          <div class="client-card-header">
+            <div class="client-card-avatar">ОЛ</div>
+            <div class="client-card-info">
+              <div class="client-card-name">Ольга Лебедева</div>
+              <div class="client-card-email">olga@example.com</div>
+            </div>
+          </div>
+          <div class="client-card-details">
+            <div class="client-card-detail">
+              <i class="fas fa-phone"></i>
+              <span>+7 (999) 987-65-43</span>
+            </div>
+            <div class="client-card-detail">
+              <i class="fas fa-calendar-plus"></i>
+              <span>Зарегистрирован: 11 июня</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tasks -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-title">
+          <i class="fas fa-tasks"></i>
+          Задачи
+        </div>
+        <div class="section-action">+ Добавить задачу</div>
+      </div>
+
+      <div class="task-list">
+        <div class="task-item">
+          <div class="task-checkbox">
+            <input type="checkbox" id="task1" />
+          </div>
+          <div class="task-content">
+            <div class="task-title">Заказать краску и иглы</div>
+            <div class="task-meta">
+              <div class="task-date">Сегодня, 16:00</div>
+              <div class="task-priority priority-high">Высокий</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-item">
+          <div class="task-checkbox">
+            <input type="checkbox" id="task2" />
+          </div>
+          <div class="task-content">
+            <div class="task-title">Обновить портфолио на сайте</div>
+            <div class="task-meta">
+              <div class="task-date">Завтра, 12:00</div>
+              <div class="task-priority priority-medium">Средний</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-item">
+          <div class="task-checkbox">
+            <input type="checkbox" id="task3" />
+          </div>
+          <div class="task-content">
+            <div class="task-title">
+              Связаться с поставщиком одноразовых материалов
+            </div>
+            <div class="task-meta">
+              <div class="task-date">17 июня, 14:00</div>
+              <div class="task-priority priority-low">Низкий</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-item">
+          <div class="task-checkbox">
+            <input type="checkbox" id="task4" />
+          </div>
+          <div class="task-content">
+            <div class="task-title">
+              Сделать пост в Instagram о новых эскизах
+            </div>
+            <div class="task-meta">
+              <div class="task-date">18 июня, 10:00</div>
+              <div class="task-priority priority-medium">Средний</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
