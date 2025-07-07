@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
 from django.views import View
 
 
@@ -12,7 +11,7 @@ class IndexView(View):
 # аутентификация
 class LoginView(View):
     def get(self, request):
-        return render(request, f"site/{request.type_device}/login.html")
+        return render(request, f"{request.type_device}/login.html")
 
     def post(self, request):
         username = request.POST["username"]

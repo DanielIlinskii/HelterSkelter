@@ -64,11 +64,11 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.auth.middleware.LoginRequiredMiddleware",
+    "CRM.middleware.authentication.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "CRM.middleware.type_device.TypeDeviceMiddleware",
-    
+    "CRM.middleware.logging.LoggerMiddleware",
 ]
 # "CRM.middleware.logging.LoggerMiddleware",
 # "CRM.middleware.authentication.AuthenticationMiddleware",
