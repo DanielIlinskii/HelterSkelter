@@ -1,3 +1,4 @@
+from annotated_types import T
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import (
@@ -9,6 +10,11 @@ class AccessLevel(models.TextChoices):
     CLIENT = "client", "Клиент"
     ADMIN = "admin", "Админ"
     OWNER = "owner", "Владелец"
+
+
+class TypeClient(models.TextChoices):
+    GUEST = "guest", "Гость"
+    REGULAR = "regular", "Постоянник"
 
 
 class User(AbstractUser):
@@ -28,6 +34,12 @@ class User(AbstractUser):
         max_length=10,
         choices=AccessLevel.choices,
         default=AccessLevel.CLIENT,
+    )
+
+    type_client = models.CharField(
+        "Тип клиента",
+        choices=TypeClient.choices,
+        default=TypeClient.GUEST,
     )
 
     # Дополнительные поля
@@ -61,7 +73,13 @@ class User(AbstractUser):
         null=True,
     )
 
-
+    TARIFF_CHOICES = [
+        ("S", "S"),
+        ("M", "M"),
+        ("L", "L"),
+        ("O", "O"),
+    ]
+    tariff = models.CharField("Тариф", max_length=1, choices=TARIFF_CHOICES, null=True)
 
     # Настройки
     USERNAME_FIELD = "username"  # Используем username как основной идентификатор

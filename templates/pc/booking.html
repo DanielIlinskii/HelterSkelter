@@ -1,0 +1,220 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/booking.css' %}" />
+{% endblock css %} {% block content %}
+<!-- Main Content -->
+
+<!-- Booking Section -->
+<div class="booking-section">
+  <!-- Calendar Container -->
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <div class="calendar-title">
+        <i class="fas fa-calendar-alt"></i>
+        <span id="currentMonth">Дата</span>
+      </div>
+      <div class="calendar-controls">
+        <button class="calendar-btn" id="prevMonth">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="calendar-btn" id="nextMonth">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="calendar-grid">
+      <div class="calendar-weekdays">
+        <div class="weekday">Пн</div>
+        <div class="weekday">Вт</div>
+        <div class="weekday">Ср</div>
+        <div class="weekday">Чт</div>
+        <div class="weekday">Пт</div>
+        <div class="weekday">Сб</div>
+        <div class="weekday">Вс</div>
+      </div>
+
+      <div class="calendar-days" id="calendarDays">
+        <div class="calendar-day" style="visibility: hidden"></div>
+        <div class="calendar-day">1</div>
+        <div class="calendar-day">2</div>
+        <div class="calendar-day">3</div>
+        <div class="calendar-day">4</div>
+        <div class="calendar-day">5</div>
+        <div class="calendar-day">6</div>
+        <div class="calendar-day">7</div>
+        <div class="calendar-day">8</div>
+        <div class="calendar-day">9</div>
+        <div class="calendar-day">10</div>
+        <div class="calendar-day">11</div>
+        <div class="calendar-day">12</div>
+        <div class="calendar-day">13</div>
+        <div class="calendar-day">14</div>
+        <div class="calendar-day">15</div>
+        <div class="calendar-day">16</div>
+        <div class="calendar-day">17</div>
+        <div class="calendar-day">18</div>
+        <div class="calendar-day">19</div>
+        <div class="calendar-day">20</div>
+        <div class="calendar-day">21</div>
+        <div class="calendar-day">22</div>
+        <div class="calendar-day">23</div>
+        <div class="calendar-day">24</div>
+        <div class="calendar-day">25</div>
+        <div class="calendar-day">26</div>
+        <div class="calendar-day">27</div>
+        <div class="calendar-day">28</div>
+        <div class="calendar-day">29</div>
+        <div class="calendar-day">30</div>
+        <div class="calendar-day">31</div>
+        <div class="calendar-day" style="visibility: hidden"></div>
+        <div class="calendar-day" style="visibility: hidden"></div>
+        <div class="calendar-day" style="visibility: hidden"></div>
+      </div>
+    </div>
+
+    <div class="time-slots">
+      <div class="time-slots-title">Доступное время</div>
+      <div class="time-slots-grid" id="timeSlots">
+        <div class="time-slot">10:00</div>
+        <div class="time-slot">10:30</div>
+        <div class="time-slot">11:00</div>
+        <div class="time-slot">11:30</div>
+        <div class="time-slot">12:00</div>
+        <div class="time-slot">12:30</div>
+        <div class="time-slot">13:00</div>
+        <div class="time-slot">13:30</div>
+        <div class="time-slot">14:00</div>
+        <div class="time-slot">14:30</div>
+        <div class="time-slot">15:00</div>
+        <div class="time-slot">15:30</div>
+        <div class="time-slot">16:00</div>
+        <div class="time-slot">16:30</div>
+        <div class="time-slot">17:00</div>
+        <div class="time-slot">17:30</div>
+        <div class="time-slot">18:00</div>
+        <div class="time-slot">18:30</div>
+        <div class="time-slot">19:00</div>
+        <div class="time-slot">19:30</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Form -->
+  <div class="booking-form-container">
+    <div class="booking-form-title">
+      <i class="fas fa-edit"></i>
+      Детали записи
+    </div>
+
+    <div class="selected-date-time" id="selectedDateTime">
+      <div class="selected-date-time-label">Выбранная дата и время</div>
+      <div class="selected-date-time-value">
+        <i class="fas fa-calendar-check"></i>
+        <span id="selectedDateTimeValue">Дата не выбрана, время не выбрано</span>
+      </div>
+    </div>
+
+    <!-- <div class="master-selection">
+        <div class="form-label">Выберите мастера</div>
+        <div class="master-list">
+          <div
+            class="master-item"
+            data-master="АК"
+            onclick="selectMaster(this)"
+          >
+            <div class="master-avatar">АК</div>
+            <div class="master-info">
+              <div class="master-name">Александр К.</div>
+              <div class="master-specialty">Реализм</div>
+            </div>
+          </div>
+          <div
+            class="master-item"
+            data-master="МЛ"
+            onclick="selectMaster(this)"
+          >
+            <div class="master-avatar">МЛ</div>
+            <div class="master-info">
+              <div class="master-name">Мария Л.</div>
+              <div class="master-specialty">Минимализм</div>
+            </div>
+          </div>
+          <div
+            class="master-item"
+            data-master="СВ"
+            onclick="selectMaster(this)"
+          >
+            <div class="master-avatar">СВ</div>
+            <div class="master-info">
+              <div class="master-name">Сергей В.</div>
+              <div class="master-specialty">Традишнл</div>
+            </div>
+          </div>
+          <div
+            class="master-item"
+            data-master="ЕК"
+            onclick="selectMaster(this)"
+          >
+            <div class="master-avatar">ЕК</div>
+            <div class="master-info">
+              <div class="master-name">Елена К.</div>
+              <div class="master-specialty">Акварель</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+    <form id="bookingForm">
+      <div class="form-group">
+        <label class="form-label">Тип татуировки</label>
+        <select
+          class="form-select"
+          required=""
+          style="background-color: #2d2d2d"
+        >
+          <option value="">Выберите тип</option>
+          <option value="small">Маленькая (до 5 см)</option>
+          <option value="medium">Средняя (5-15 см)</option>
+          <option value="large">Большая (15-30 см)</option>
+          <option value="sleeve">Рукав</option>
+          <option value="back">Спина</option>
+          <option value="consult">Консультация</option>
+        </select>
+      </div>
+
+      <!-- <div class="form-group">
+          <label class="form-label">Место на теле</label>
+          <input
+            type="text"
+            class="form-input"
+            placeholder="Например: рука, нога, запястье..."
+            required=""
+          />
+        </div> -->
+
+      <!-- <div class="form-group">
+          <label class="form-label">Описание идеи</label>
+          <textarea
+            class="form-textarea"
+            placeholder="Опишите вашу идею, стиль, референсы..."
+          ></textarea>
+        </div> -->
+
+      <div class="form-group">
+        <label class="form-label">Контактный телефон клиента</label>
+        <input
+          type="tel"
+          class="form-input"
+          placeholder="+7 (___) ___-__-__"
+          required=""
+        />
+      </div>
+
+      <button type="submit" class="form-submit">Записаться на сеанс</button>
+    </form>
+  </div>
+</div>
+
+{% endblock content %} {% block js%}
+<script type="text/javascript" src="{% static 'js/booking.js' %}"></script>
+{% endblock js %}

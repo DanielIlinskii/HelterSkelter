@@ -1,0 +1,19 @@
+<div class="header">
+  <div class="header-title">
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div>
+      <h2>Панель управления</h2>
+      <div class="header-subtitle">Сегодня: {{ current_date }}</div>
+    </div>
+  </div>
+  <div class="header-actions">
+    <div class="search-bar">
+      <p>Выбранный тариф: {{booking.tariff}}</p>
+    </div>
+    <div class="user-profile">
+      <div class="user-name">{{ user.name }} {{ user.last_name }} {{ user.balance }}₽</div>
+    </div>
+  </div>
+</div>

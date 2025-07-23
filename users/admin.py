@@ -14,10 +14,12 @@ class CustomUserAdmin(UserAdmin):
         "is_verified",
         "access_level",
         "balance",
+        "tariff",
         "where_admin",
+        "type_client",
     )
     fieldsets = (
-        (None, {"fields": ("username", "email", "password", "balance")}),
+        (None, {"fields": ("username", "email", "password", "balance", "type_client", "tariff")}),
         ("Персональная информация", {"fields": ("name", "last_name", "phone_number")}),
         (
             "Разрешения",

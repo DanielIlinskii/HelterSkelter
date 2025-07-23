@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock css %} 
+
+
+{% block content %}
+<div class="main-content">
+  <!-- Header -->
+  {% include 'pc/include/header.html' %}
+
+  Аналитика
+
+</div>
+{% endblock content %} 
+
+
+{% block js %}
+  <script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+{% endblock js %}
